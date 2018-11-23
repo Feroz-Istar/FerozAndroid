@@ -34,6 +34,6 @@ public class LandingViewHolder extends RecyclerView.ViewHolder {
     public  void render(AppNavigation appNavigation){
         appnav.setText(appNavigation.getName());
 
-        card_view.setCardBackgroundColor(context.getResources().getColor(R.color.red_400));
+        card_view.setCardBackgroundColor(context.getColor(R.color.red_400));
     }
 }
