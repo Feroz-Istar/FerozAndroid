@@ -12,6 +12,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.github.javafaker.Faker;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,11 +22,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import sample.androido.com.myapplication.R;
+import sample.androido.com.myapplication.database.MyDatabase;
 import sample.androido.com.myapplication.landing.adapter.LandingAdapter;
 import sample.androido.com.myapplication.landing.pojo.AppNavigation;
+import sample.androido.com.myapplication.mainpojo.AppFeature;
 
 public class LandingActivity extends AppCompatActivity {
-
+    private MyDatabase myDatabase;
     String[] PERMISSIONS = {Manifest.permission.INTERNET, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.RECEIVE_BOOT_COMPLETED
             , Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE,
@@ -45,6 +49,8 @@ public class LandingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
         ButterKnife.bind(this);
+        myDatabase = MyDatabase.getInstance(this);
+
         appNavigations.add(new AppNavigation("RSJX TUTORIAL",new Date(),new Date()));
         appNavigations.add(new AppNavigation("ROOM DATABASE",new Date(),new Date()));
         appNavigations.add(new AppNavigation("JOB SCHEDULER",new Date(),new Date()));
@@ -64,6 +70,9 @@ public class LandingActivity extends AppCompatActivity {
 
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(landingAdapter);
+
+
+
     }
 
 
