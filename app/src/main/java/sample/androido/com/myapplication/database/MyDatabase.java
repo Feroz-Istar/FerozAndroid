@@ -10,13 +10,17 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import sample.androido.com.myapplication.database.dao.AppFeatureDao;
+import sample.androido.com.myapplication.database.dao.TopicDao;
 import sample.androido.com.myapplication.mainpojo.AppFeature;
+import sample.androido.com.myapplication.mainpojo.Topic;
 
-@Database(entities = {AppFeature.class}, version = 4, exportSchema = false)
+@Database(entities = {AppFeature.class,Topic.class}, version = 1, exportSchema = false)
 public abstract class MyDatabase extends RoomDatabase {
     private static volatile MyDatabase instance;
     private static final String DB_NAME = "ferozdatabase.db";
     public abstract AppFeatureDao getAppFeatureDao();
+    public abstract TopicDao getTopicDao();
+
     public static synchronized MyDatabase getInstance(Context context) {
         if (instance == null) {
             instance = create(context);
@@ -33,5 +37,10 @@ public abstract class MyDatabase extends RoomDatabase {
 
     }
 
+
+    public static void myclearAllTable(){
+        instance.getAppFeatureDao().removeAllAppFeature();
+        instance.getTopicDao().removeAllTopic();
+    }
 
 }

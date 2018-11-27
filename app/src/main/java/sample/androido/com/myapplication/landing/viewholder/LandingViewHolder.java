@@ -2,6 +2,7 @@ package sample.androido.com.myapplication.landing.viewholder;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import sample.androido.com.myapplication.R;
 import sample.androido.com.myapplication.landing.pojo.AppNavigation;
+import sample.androido.com.myapplication.mainpojo.Topic;
 
 public class LandingViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.appnaviagtion)
@@ -31,9 +33,11 @@ public class LandingViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    public  void render(AppNavigation appNavigation){
-        appnav.setText(appNavigation.getName());
+    public  void render(Topic topic){
+        appnav.setText(topic.getName());
 
-        card_view.setCardBackgroundColor(context.getColor(R.color.red_400));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            card_view.setCardBackgroundColor(context.getColor(R.color.red_400));
+        }
     }
 }

@@ -12,14 +12,15 @@ import java.util.List;
 import sample.androido.com.myapplication.R;
 import sample.androido.com.myapplication.landing.pojo.AppNavigation;
 import sample.androido.com.myapplication.landing.viewholder.LandingViewHolder;
+import sample.androido.com.myapplication.mainpojo.Topic;
 
 public class LandingAdapter extends RecyclerView.Adapter<LandingViewHolder> {
     private Context context;
-    private List<AppNavigation> appNavigations;
+    private List<Topic> topics;
 
-    public LandingAdapter(Context context, List<AppNavigation> appNavigations) {
+    public LandingAdapter(Context context, List<Topic> topics) {
         this.context = context;
-        this.appNavigations = appNavigations;
+        this.topics = topics;
     }
 
     @NonNull
@@ -33,11 +34,11 @@ public class LandingAdapter extends RecyclerView.Adapter<LandingViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull LandingViewHolder landingViewHolder, int position) {
-        landingViewHolder.render(appNavigations.get(position));
+        landingViewHolder.render(topics.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return appNavigations.size();
+        return topics.size();
     }
 }

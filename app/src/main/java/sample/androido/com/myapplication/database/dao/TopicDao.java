@@ -10,26 +10,31 @@ import android.arch.persistence.room.Update;
 import java.util.List;
 
 import sample.androido.com.myapplication.mainpojo.AppFeature;
+import sample.androido.com.myapplication.mainpojo.Topic;
 
 @Dao
-public interface AppFeatureDao {
-    @Query("SELECT * FROM AppFeature")
-    List<AppFeature> getAll();
+public interface TopicDao {
+    @Query("SELECT * FROM Topic")
+    List<Topic> getAll();
 
+
+    @Query("SELECT * FROM Topic where feature_id=:feature_id ")
+    List<Topic> getTopicByFeautreId(Integer feature_id);
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(AppFeature task);
+    void insert(Topic task);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(List<AppFeature> appFeatures);
 
-    @Query("delete from AppFeature")
-    void removeAllAppFeature();
+    @Query("delete from Topic")
+    void removeAllTopic();
 
     @Delete
-    void delete(AppFeature task);
+    void delete(Topic task);
 
     @Update
-    void update(AppFeature task);
+    void update(Topic task);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insert(List<Topic> topics);
 }
