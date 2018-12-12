@@ -41,9 +41,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".landing.LandingActivity" />
 
         <meta-data
@@ -53,6 +51,9 @@
         <activity android:name=".landing.LandingViewPagerActivity" />
         <activity android:name=".topic.TopicParentActivity" />
         <activity android:name=".topic.rsjx.activity.RsJxActivity">
+
+        </activity>
+        <activity android:name=".landing.toolbar.ToolBarActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
