@@ -31,6 +31,9 @@ public class ToolBarActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        if (savedInstanceState != null) {
+            mSearchString = savedInstanceState.getString("SEARCH_KEY");
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,6 +49,7 @@ public class ToolBarActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             searchButton.setImageTintList(ColorStateList.valueOf(getResources().getColor(R.color.white)));
         }
+
         if (mSearchString != null && !mSearchString.isEmpty()) {
             new Handler().post(new Runnable() {
                 @Override
@@ -88,4 +92,12 @@ public class ToolBarActivity extends AppCompatActivity {
         });
         return super.onCreateOptionsMenu(menu);
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mSearchString = searchView.getQuery().toString();
+        outState.putString("SEARCH_KEY", mSearchString);
+    }
+
 }
