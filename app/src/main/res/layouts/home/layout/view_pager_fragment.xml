@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/myfragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.wajahatkarim3.easyflipview.EasyFlipView
+        android:id="@+id/easy_flip"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:autoFlipBack="false"
+        app:autoFlipBackTime="1000"
+        app:flipDuration="300"
+        app:flipEnabled="true"
+        app:flipFrom="front"
+        app:flipOnTouch="false"
+        app:flipType="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Back Layout Goes Here -->
+        <include layout="@layout/flash_card_layout_back" />
+
+        <!-- Front Layout Goes Here -->
+        <include layout="@layout/flash_card_layout_front" />
+
+    </com.wajahatkarim3.easyflipview.EasyFlipView>
+</android.support.constraint.ConstraintLayout>
