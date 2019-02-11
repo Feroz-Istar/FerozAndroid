@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Feroze</string>
+    <string name="feroz_channel_name">feroz_channel</string>
+
+    <string name="feroz_channel_description">feroz_channel_description</string>
+
 </resources>
