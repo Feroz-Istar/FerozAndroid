@@ -41,13 +41,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".customnotification.FerozNotificationActivity">
+        <activity android:name=".services.CreateForegroundServiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".services.MyForeGroundService"
+            android:enabled="true"
+            android:exported="true" />
+        <activity android:name=".chrono.TestChronometer">
+
+        </activity>
+        <activity android:name=".customnotification.FerozNotificationActivity"></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".landing.LandingActivity" />
 
@@ -58,10 +66,9 @@
         <activity android:name=".landing.LandingViewPagerActivity" />
         <activity android:name=".topic.TopicParentActivity" />
         <activity android:name=".topic.rsjx.activity.RsJxActivity" />
-        <activity android:name=".landing.toolbar.ToolBarActivity"></activity>
-        <activity android:name=".flip.activity.FlipActivity">
+        <activity android:name=".landing.toolbar.ToolBarActivity" />
+        <activity android:name=".flip.activity.FlipActivity" />
 
-        </activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.provider"
