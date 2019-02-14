@@ -41,21 +41,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".services.CreateForegroundServiceActivity">
+        <activity android:name=".job_scheduler.JobActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".services.CreateForegroundServiceActivity">
+
+        </activity>
+
         <service
             android:name=".services.MyForeGroundService"
             android:enabled="true"
             android:exported="true" />
-        <activity android:name=".chrono.TestChronometer">
-
-        </activity>
-        <activity android:name=".customnotification.FerozNotificationActivity"></activity>
+        <service
+            android:name=".job_scheduler.NotificationJobService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <activity android:name=".chrono.TestChronometer"></activity>
+        <activity android:name=".customnotification.FerozNotificationActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".landing.LandingActivity" />
 
