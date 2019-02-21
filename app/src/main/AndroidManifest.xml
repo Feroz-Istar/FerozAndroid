@@ -41,6 +41,33 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <service
+            android:name=".activitytransion.activity.MyService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <receiver
+            android:name=".activitytransion.broadcast.PhoneStateReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="android.intent.action.USER_UNLOCKED" />
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".activitytransion.activity.SecondSceneActivity" />
+        <activity android:name=".activitytransion.activity.FirstSceneActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".landing.LandingActivity" />
 
@@ -50,17 +77,9 @@
 
         <activity android:name=".landing.LandingViewPagerActivity" />
         <activity android:name=".topic.TopicParentActivity" />
-        <activity android:name=".topic.rsjx.activity.RsJxActivity"></activity>
-        <activity android:name=".landing.toolbar.ToolBarActivity">
-
-        </activity>
-        <activity android:name=".flip.activity.FlipActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".topic.rsjx.activity.RsJxActivity" />
+        <activity android:name=".landing.toolbar.ToolBarActivity" />
+        <activity android:name=".flip.activity.FlipActivity" />
     </application>
 
 </manifest>

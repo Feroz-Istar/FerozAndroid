@@ -1,8 +1,8 @@
+
 package sample.androido.com.myapplication.flip.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,15 +46,15 @@ public class OneFragment extends Fragment {
 
         if (getArguments() != null) {
             myData = (MyData)getArguments().getSerializable(DATA);
-            /*title.setText(myData.getTitle());
-            subtitle.setText(myData.getSubtitle());
-            Picasso.get().load(myData.getUrl()).into(image);*/
+
+
+
         }
 
-        final FragmentTransaction ft = getChildFragmentManager().beginTransaction();
-
-        ft.replace(R.id.frame_container, blankFragment, "NewFragmentTag");
-        ft.commit();
+//        final FragmentTransaction ft = getChildFragmentManager().beginTransaction();
+//
+//        ft.replace(R.id.frame_container, blankFragment, "NewFragmentTag");
+//        ft.commit();
 
         start_task.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,3 +79,4 @@ public class OneFragment extends Fragment {
 
     }
 }
+

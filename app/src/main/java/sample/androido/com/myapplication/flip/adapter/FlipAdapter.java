@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import sample.androido.com.myapplication.flip.fragment.OneFragment;
+import sample.androido.com.myapplication.flip.fragment.TwoFragment;
 import sample.androido.com.myapplication.flip.utils.MyData;
 
 public class FlipAdapter extends FragmentStatePagerAdapter {
@@ -25,8 +25,7 @@ public class FlipAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int i) {
         Bundle bundle = new Bundle();
-        bundle.putSerializable(OneFragment.DATA, myDataList.get(i));
-        Fragment fragment = new OneFragment();
+        Fragment fragment = new TwoFragment();
 
 
         fragment.setArguments(bundle);
