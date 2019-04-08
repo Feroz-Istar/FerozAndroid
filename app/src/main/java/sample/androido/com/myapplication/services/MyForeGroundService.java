@@ -83,11 +83,11 @@ public class MyForeGroundService  extends Service {
             @Override
             public void run() {
                 Intent intent = new Intent();
-                intent.setAction("CALL_CONNECTED");
+                intent.setAction("CONNECTED");
                 LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
 
             }
-        },10000);
+        },100000);
     }
 
     private void stopForegroundService()
@@ -140,8 +140,6 @@ public class MyForeGroundService  extends Service {
         mBuilder.addAction(R.drawable.ic_launcher_new,"Hang Up",stopPlayIntent);
         Intent intent = new Intent(this, CreateForegroundServiceActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.putExtra("phoneNumberValidator","123");
-        intent.putExtra("isCallConnected",true);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent,  PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.setContentIntent(pendingIntent);
          mBuilder.setUsesChronometer(true);

@@ -41,10 +41,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <receiver
+            android:name=".broadcast.DateChangeReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcast.TimeTickBroadcast"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".canvas.CanvasDrawing"></activity>
+
         <service
             android:name=".activitytransion.activity.MyService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <receiver
             android:name=".activitytransion.broadcast.PhoneStateReceiver"
@@ -61,13 +80,7 @@
         </receiver>
 
         <activity android:name=".activitytransion.activity.SecondSceneActivity" />
-        <activity android:name=".activitytransion.activity.FirstSceneActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activitytransion.activity.FirstSceneActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".landing.LandingActivity" />
 
@@ -80,6 +93,13 @@
         <activity android:name=".topic.rsjx.activity.RsJxActivity" />
         <activity android:name=".landing.toolbar.ToolBarActivity" />
         <activity android:name=".flip.activity.FlipActivity" />
+        <activity android:name=".customnotification.FerozNotificationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -14,8 +14,18 @@ import android.widget.TextView;
 import sample.androido.com.myapplication.R;
 
 public class CreateForegroundServiceActivity extends AppCompatActivity {
+    TextView display;
+    BroadcastReceiver broadcastReceiver= new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            switch (intent.getAction()) {
+                case "CONNECTED":
+                    display.setText("Service connected");
+                    break;
+            }
 
-    BroadcastReceiver broadcastReceiver;
+        }
+    };;
     private boolean isReceiverRegistered = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,19 +51,8 @@ public class CreateForegroundServiceActivity extends AppCompatActivity {
             }
         });
 
-        final TextView display = findViewById(R.id.display);
+             display  = findViewById(R.id.display);
 
-        broadcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                switch (intent.getAction()) {
-                    case "CALL_CONNECTED":
-                        display.setText("call connected");
-                        break;
-                }
-
-            }
-        };
     }
 
 
@@ -61,7 +60,7 @@ public class CreateForegroundServiceActivity extends AppCompatActivity {
 
         if(!isReceiverRegistered){
             IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("CALL_CONNECTED");
+            intentFilter.addAction("CONNECTED");
             LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver,intentFilter);
             isReceiverRegistered = true;
         }
@@ -82,9 +81,9 @@ public class CreateForegroundServiceActivity extends AppCompatActivity {
 
     }
     @Override
-    public void onDestroy() {
+    public void onPause() {
+        super.onPause();
         unregisterReceiver();
 
-        super.onDestroy();
     }
 }
